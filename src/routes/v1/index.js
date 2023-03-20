@@ -4,7 +4,7 @@ const CompanyController = require('../../contollers/companyController');
 
 const router = express.Router();
 
-router.post("/createCompany",CompanyController.create);
+router.post("/createCompany",CompanyController.create); // create
 
 
 router.patch("/updateCompById/:id",CompanyController.updateById);

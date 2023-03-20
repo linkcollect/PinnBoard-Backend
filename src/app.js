@@ -6,8 +6,6 @@ const connect = require('./config/database');
 const {PORT} = require('./config/index');
 const ApiRoutes = require('./routes/index');
 
-const CompanyRepo = require('./repository/companyRepo');
-const company = new CompanyRepo();
 
 const setUpAndStartServer = async()=> {
     app.use(bodyParser.json());
