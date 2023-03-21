@@ -48,6 +48,14 @@ class CompanyService {
             throw error;
         }
     }
+    getJobs = async(id) => {
+        try {
+            const jobs = await companyRepo.getwithJob(id);
+            return jobs;
+        } catch (error) {
+            throw error;
+        }
+    }
     getByName = async(name)=>{
         try {
             const company =  await companyRepo.getbyName(name);

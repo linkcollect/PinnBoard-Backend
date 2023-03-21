@@ -131,6 +131,27 @@ const getByName = async(req,res) => {
          })
      }
 }
+const getJobs = async(req,res) => {
+    try {
+        // console.log("Contoller",req.params.name);
+         const job = await companyService.getJobs(req.params.id);
+         return res.status(201).json({
+             data: job,
+             success: true,
+             message: 'Successfully fetch jobs',
+             err: {}
+         });
+         
+     } catch (error) {
+         return res.status(501).json({
+             data:{},
+             success:false,
+             message : "Not able to fetch jobs of the corresponing company",
+             err:error.message
+ 
+         })
+     }
+}
 const getById = async(req,res) => {
     try {
         // console.log("Contoller",req.params.name);
@@ -159,5 +180,6 @@ module.exports = {
     deleteById,
     deleteByName,
     getById,
-    getByName
+    getByName,
+    getJobs
 }

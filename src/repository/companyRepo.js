@@ -68,6 +68,14 @@ class CompanyRepository {
             throw new Error(`Error getting Company by Name: ${error.message}`);
         }
     }
+    getwithJob = async(id) => {
+        try {
+            const jobs = await Company.findById(id).populate({path:'Jobs'}).lean();
+            return jobs;
+        } catch (error) {
+            throw error;
+        }
+    }
     getbyName = async (name) => {
         try {
             const company = await Company.findOne({ Name: name }).lean();
